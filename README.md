@@ -1,0 +1,2 @@
+# copystagram-manifest
+copystagram-manifest
