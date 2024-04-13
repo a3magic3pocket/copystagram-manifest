@@ -1,0 +1,6 @@
+[submodule "copystagram-frontend"]
+	path = copystagram-frontend
+	url = git@github-amp:a3magic3pocket/copystagram-frontend.git
+[submodule "copystagram-backend"]
+	path = copystagram-backend
+	url = git@github-amp:a3magic3pocket/copystagram-backend.git
