@@ -6,6 +6,7 @@ SHELL ["/bin/bash", "--login", "-i", "-c"]
 RUN apt-get update && apt-get install
 RUN apt-get install curl -y
 RUN apt-get install unzip -y
+RUN apt-get install nginx -y
 
 # init
 WORKDIR /copystagram
@@ -13,14 +14,14 @@ COPY . .
 ENV NODE_VERSION=20
 ENV BASHRC=/root/.bashrc
 
-# # node
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-# RUN source $BASHRC
-# RUN nvm install $NODE_VERSION
+# node
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN source $BASHRC
+RUN nvm install $NODE_VERSION
 
-# WORKDIR /copystagram/copystagram-frontend
-# RUN npm install
-# RUN npm run build
+WORKDIR /copystagram/copystagram-frontend
+RUN npm install
+RUN npm run build
 
 # java
 WORKDIR /copystagram
@@ -32,8 +33,11 @@ RUN source $BASHRC
 RUN javac --version
 RUN java --version
 
-# curl --location --show-error -O --url "https://services.gradle.org/distributions/gradle-8.7-bin.zip
-RUN unzip gradle-8.7-bin.zip -d gradle
+# RUN curl --location --show-error -O --url "https://services.gradle.org/distributions/gradle-8.7-bin.zip"
+RUN unzip ./gradle-8.7-bin.zip -d gradle
 
 WORKDIR /copystagram/copystagram-backend/copystagram
-RUN /copystagram/gradle/gradle-8.7/bin/gradle build
+# RUN /copystagram/gradle/gradle-8.7/bin/gradle build -p /copystagram/copystagram-backend/copystagram
+# /copystagram/gradle/gradle-8.7/bin/gradle bootRun -p /copystagram/copystagram-backend/copystagram
+
+CMD ["tail", "-f", "/dev/null"]
