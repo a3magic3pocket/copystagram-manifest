@@ -14,10 +14,15 @@ COPY . .
 ENV NODE_VERSION=20
 ENV BASHRC=/root/.bashrc
 
+RUN chmod 754 /copystagram/kafka_2.13-3.7.0/bin/*.sh
+
+
 # node
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 RUN source $BASHRC
 RUN nvm install $NODE_VERSION
+
+RUN mv /copystagram/.env.production /copystagram/copystagram-frontend/.env.production
 
 WORKDIR /copystagram/copystagram-frontend
 RUN npm install
@@ -36,8 +41,11 @@ RUN java --version
 # RUN curl --location --show-error -O --url "https://services.gradle.org/distributions/gradle-8.7-bin.zip"
 RUN unzip ./gradle-8.7-bin.zip -d gradle
 
+RUN mv /copystagram/application.properties /copystagram/copystagram-backend/copystagram/src/main/resources/application.properties
+RUN mv /copystagram/copystagram.properties /copystagram/copystagram-backend/copystagram/src/main/resources/copystagram.properties
+
 WORKDIR /copystagram/copystagram-backend/copystagram
-# RUN /copystagram/gradle/gradle-8.7/bin/gradle build -p /copystagram/copystagram-backend/copystagram
+RUN /copystagram/gradle/gradle-8.7/bin/gradle build -x test -p /copystagram/copystagram-backend/copystagram
 # /copystagram/gradle/gradle-8.7/bin/gradle bootRun -p /copystagram/copystagram-backend/copystagram
 
 CMD ["tail", "-f", "/dev/null"]
