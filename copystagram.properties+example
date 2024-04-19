@@ -1,0 +1,10 @@
+# Custom
+copystagram.frontendUri=https://your-frontend-domain
+copystagram.corsOrigins=https://your-frontend-domain,https://www.your-frontend-domain
+copystagram.authHintCookieDomain=your-frontend-domain
+copystagram.authHintCookieName=copystagram-token
+copystagram.staticDirPath=/src/main/resources/static
+copystagram.rootImageDirName=image
+copystagram.rawDirName=raw
+copystagram.thumbDirName=144x144
+copystagram.contentDirName=430x430

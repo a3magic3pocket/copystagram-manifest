@@ -1,0 +1,40 @@
+# Consumer
+spring.kafka.consumer.bootstrap-servers=broker:9092
+spring.kafka.consumer.group-id=post-creation
+spring.kafka.consumer.auto-offset-reset=earliest
+#spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+#spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.JsonDeserializer
+#spring.kafka.consumer.properties.spring.json.trusted.packages=com.mypackage.streams.entity.kafka.*
+spring.kafka.consumer.properties.allow.auto.create.topics=false
+
+# Producerz
+spring.kafka.producer.bootstrap-servers=broker:9092
+#spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+#spring.kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
+spring.kafka.producer.properties.spring.json.add.type.headers=false
+
+
+# MongoDB
+#spring.data.mongodb.host=localhost
+#spring.data.mongodb.port=27017
+#spring.data.mongodb.database=copystagram
+#spring.data.mongodb.username=your-mongodb-id
+#spring.data.mongodb.password=your-mongodb-pw
+spring.data.mongodb.uri=mongodb+srv://your-mongodb-id:your-mongodb-pw@your-mongodb-atlas-domain/your-mongodb-database-name?retryWrites=true&w=majority
+spring.data.mongodb.authentication-database=admin
+
+# ETC
+spring.jackson.property-naming-strategy=SNAKE_CASE
+spring.mvc.static-path-pattern=/public/**
+spring.web.resources.static-locations=classpath:/static/
+
+# Spring Security
+spring.security.oauth2.client.registration.google.redirect-uri=https://your-service-domain/login/oauth2/code/google
+spring.security.oauth2.client.registration.google.client-id=your-google-oauth2-client-id
+spring.security.oauth2.client.registration.google.client-secret=your-google-oauth2-client-secret
+spring.security.oauth2.client.registration.google.authorization-grant-type=authorization_code
+spring.security.oauth2.client.registration.google.scope=profile, email
+
+# file
+spring.servlet.multipart.max-file-size=20MB
+spring.servlet.multipart.max-request-size=25MB
