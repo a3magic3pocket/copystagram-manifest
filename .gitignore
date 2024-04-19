@@ -1,5 +1,6 @@
 # Custom
-kafka
 mongodb
-kafka-connect
-kafka_2.13-3.7.0
+kafka_*-*
+gradle-*.zip
+openjdk-*.tar.gz
+kafka-connect-real
