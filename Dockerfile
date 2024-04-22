@@ -32,6 +32,7 @@ RUN npm run build
 WORKDIR /copystagram
 # RUN curl -O https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz
 RUN tar xvf openjdk-*_bin.tar.gz
+RUN rm openjdk-*_bin.tar.gz
 RUN echo "JAVA_HOME=/copystagram/jdk-21.0.2" >> $BASHRC
 RUN echo "PATH=$PATH:$HOME/bin:$JAVA_HOME/bin" >> $BASHRC
 RUN source $BASHRC
@@ -40,6 +41,7 @@ RUN java --version
 
 # RUN curl --location --show-error -O --url "https://services.gradle.org/distributions/gradle-8.7-bin.zip"
 RUN unzip ./gradle-8.7-bin.zip -d gradle
+RUN rm ./gradle-8.7-bin.zip
 
 RUN mv /copystagram/application.properties /copystagram/copystagram-backend/copystagram/src/main/resources/application.properties
 RUN mv /copystagram/copystagram.properties /copystagram/copystagram-backend/copystagram/src/main/resources/copystagram.properties
