@@ -16,6 +16,7 @@ services:
       - ./kafka/config/secrets:/etc/kafka/secrets
       - ./kafka/config/file-input:/mnt/shared/config
       - ./kafka/data:/tmp/kraft-combined-logs
+      - ./logs:/copystagram/logs
     environment:
       # Environment variables used by kafka scripts will be needed in case of File input.
       CLUSTER_ID: '4L6g3nShT-eMCtK--X86sw'

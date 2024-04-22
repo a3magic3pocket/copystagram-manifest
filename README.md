@@ -169,10 +169,10 @@ copystagram 배포에 필요한 명세들
 
     ## backend 및 frontend 소스코드 실행
     #backend
-    nohup /copystagram/gradle/gradle-8.7/bin/gradle bootRun -p /copystagram/copystagram-backend/copystagram &> /copystagram/backend.log &
+    nohup /copystagram/gradle/gradle-8.7/bin/gradle bootRun -p /copystagram/copystagram-backend/copystagram &> /copystagram/logs/backend.log &
 
     # frontend
-    cd /copystagram/copystagram-frontend/ && nohup npm run start &> /copystagram/frontend.log &
+    cd /copystagram/copystagram-frontend/ && nohup npm run start &> /copystagram/logs/frontend.log &
 
 
     ## nginx 실행
